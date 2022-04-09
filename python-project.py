@@ -22,24 +22,34 @@ class Employee:
         NetPay["Regular pay"] = RegPay
         
         OverTime = HoursWorked - self.RegHours
+        NetPay["Overtime Hours Worked"] = OverTime
         
         OTR = self.HourlyRate * self.OTMultiple
+        NetPay["Overtime Rate"] = OTR
         
         OTP = int(OverTime) * int(OTR)
+        NetPay["Overtime Pay"] = OTP
         
         GrossPay = int(RegPay) + int(OTP)
-        
+        NetPay["Gross Pay"] = GrossPay
+
         StandardPay = self.StandardBand
+        NetPay["Standard Rate Pay"] = StandardPay
         
         HRP = GrossPay - StandardPay
-        
+        NetPay["Higher Rate Pay"] = HRP
+
         StandardTax = StandardPay * 0.2
-        
+        NetPay["Standard Tax"] = StandardTax
+
         HigherTax = HRP * 0.4
-        
+        NetPay["Higher Tax"] = HigherTax
+
         TotalTax = StandardTax + HigherTax
-        
+        NetPay["Total Tax"] = TotalTax
+
         NetDeduction = float(TotalTax) - self.TaxCredit
+        NetPay["Net Deductions"] = NetDeduction
 
         return NetPay
 
