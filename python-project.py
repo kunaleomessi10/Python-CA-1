@@ -14,4 +14,34 @@ class Employee:
         NetPay= {}
         NetPay["name"] = self.FirstName + " " + self.LastName
         NetPay["Date"] = date
+        
+        HoursWorked = int(HoursWorked)
+        NetPay["Regular Hours Worked"] = HoursWorked
 
+        RegPay = self.HourlyRate * self.RegHours
+        NetPay["Regular pay"] = RegPay
+        
+        OverTime = HoursWorked - self.RegHours
+        
+        OTR = self.HourlyRate * self.OTMultiple
+        
+        OTP = int(OverTime) * int(OTR)
+        
+        GrossPay = int(RegPay) + int(OTP)
+        
+        StandardPay = self.StandardBand
+        
+        HRP = GrossPay - StandardPay
+        
+        StandardTax = StandardPay * 0.2
+        
+        HigherTax = HRP * 0.4
+        
+        TotalTax = StandardTax + HigherTax
+        
+        NetDeduction = float(TotalTax) - self.TaxCredit
+
+        return NetPay
+
+jg= Employee(12345,'Green','Joe', 37, 16, 1.5, 72, 710)
+print(jg.ComputePayment(42, '10/12/2021'))
