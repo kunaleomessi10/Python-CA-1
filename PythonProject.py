@@ -102,5 +102,18 @@ class test1(unittest.TestCase):
         pi=e.ComputePayment(10,'31/10/2021')
         self.assertGreaterEqual(0,pi['Higher Tax'])
 
+    #Net Pay cannot be negative.
+    def testNetPayCannotNegative(self):
+        e=Employee(12345,'Green','Joe', 37, 16, 1.5, 72, 710)
+        pi=e.ComputePayment(10,'31/10/2021')
+        self.assertGreaterEqual(pi['Net Pay'],0)
+
+    #Regular Hours Worked cannot exceed hours worked
+    def testRegularHoursWorked(self):
+        e=Employee(12345,'Green','Joe', 37, 16, 1.5, 72, 710)
+        pi=e.ComputePayment(10,'31/10/2021')
+        self.assertGreaterEqual(pi['Regular Hours Worked'],10)
+
+
 if __name__ == '__main__':
     unittest.main()
