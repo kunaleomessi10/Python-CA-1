@@ -1,5 +1,6 @@
 #GIT LINK
 #https://github.com/kunaleomessi10/Python-CA-1/blob/main/PythonProject.py
+#https://github.com/kunaleomessi10/Python-CA-1.git
 
 import unittest
 
@@ -80,7 +81,7 @@ class Employee:
 
         return NetPay
 
-#jg= Employee(12345,'Green','Joe', 37, 16, 1.5, 72, 710)
+jg= Employee(12345,'Green','Joe', 37, 16, 1.5, 72, 710)
 
 class test1(unittest.TestCase):
 
